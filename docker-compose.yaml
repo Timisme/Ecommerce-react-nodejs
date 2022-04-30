@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  mongodb:
+    image: 'mongo'
+    container_name: 'mongodb'
+    ports: 
+      - "27017:27017" 
+    volumes:
+      - "db_volume:/data/db"  ## <---- dash !
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    restart: always
+
+volumes:
+  db_volume:  # NO dash!
